@@ -1,24 +1,26 @@
 Requirements
 =============
-
 - node.js 5.9.1 or above
+
 
 Installation
 =============
 
-Install dependencies:
-```
-npm install
-```
+`npm install
 
-Run application: `./hackernews --posts n`
+
+Run application:
+=============
+
+`./hackernews --posts n`
 
 __n__ is number of posts you want to see in output
 
-Run tests:
-```
-npm test
-```
+
+Run tests
+=============
+`npm test`
+
 
 Libraries used
 =============
