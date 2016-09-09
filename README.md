@@ -6,13 +6,13 @@ Requirements
 Installation
 =============
 
-`npm install
+`npm install`
 
 
 Run application:
 =============
 
-`./hackernews --posts n`
+`node ./hackernews.js --posts n`
 
 __n__ is number of posts you want to see in output
 

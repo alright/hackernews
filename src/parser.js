@@ -27,6 +27,11 @@ function downloadPage(url) {
     });
 }
 
+/**
+ * Parse one post item
+ * @param elem
+ * @returns {{title: (XMLList|*|jQuery), uri: jQuery, author: (XMLList|*|jQuery), points: number, comments: number, rank: number}}
+ */
 function parseOneItem (elem) {
     var $ = cheerio.load(elem);
 
@@ -62,6 +67,11 @@ function parseOneItem (elem) {
     };
 }
 
+/**
+ * Split posts into chunks
+ * @param $elems
+ * @param limit
+ */
 function splitPost($elems, limit) {
     var plainPosts = $elems.html();
     limit = limit || 1;
@@ -75,6 +85,11 @@ function splitPost($elems, limit) {
     return plainPosts;
 }
 
+/**
+ * Parse all posts items on page
+ * @param contents
+ * @param limit
+ */
 function parseItems (contents, limit) {
     return new Promise(function(resolve, reject) {
         var $ = cheerio.load(contents);
