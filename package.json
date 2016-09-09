@@ -1,0 +1,18 @@
+{
+  "name": "hackernews",
+  "version": "1.0.0",
+  "description": "Parser for hackernews",
+  "main": "hackernews.js",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "cheerio": "^0.22.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Alright",
+  "license": "ISC"
+}
