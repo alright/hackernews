@@ -14,7 +14,7 @@ Run application:
 
 `node ./hackernews.js --posts n`
 
-__n__ is number of posts you want to see in output
+__n__ is number of posts you want to see in output. It is optional.
 
 
 Run tests
