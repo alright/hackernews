@@ -6,5 +6,6 @@ var commandline = require('./src/commandline');
 
 parser.getData(TARGET_URL, commandline.postsLimit()).then((items) => {
     // Output to STDOUT
-    console.log(items);
+    // Pretty-printified
+    console.log(JSON.stringify(items, null, 4));
 });
