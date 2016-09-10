@@ -20,6 +20,6 @@ function isValidURI(value) {
 }
 
 module.exports = {
-    toInteger: toInteger,
-    isValidURI: isValidURI
+    toInteger,
+    isValidURI
 };

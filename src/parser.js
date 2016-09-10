@@ -10,18 +10,18 @@ var utils = require('./utils');
  * @param url
  */
 function downloadPage(url) {
-    return new Promise(function(resolve, reject) {
-        https.get(url, function(res) {
+    return new Promise((resolve, reject) => {
+        https.get(url, (res) => {
             var data = '';
 
-            res.on('data', function (chunk) {
+            res.on('data', (chunk) => {
                 data += chunk;
             });
 
-            res.on("end", function() {
+            res.on("end", () => {
                 resolve(data);
             });
-        }).on("error", function() {
+        }).on("error", () => {
             reject();
         });
     });
@@ -58,9 +58,9 @@ function parseOneItem (elem) {
     }
 
     return {
-        title: title,
-        uri: uri,
-        author: author,
+        title,
+        uri,
+        author,
         points: utils.toInteger($('.score').text()),
         comments: utils.toInteger($('.subtext A:contains("comments")').text()),
         rank: utils.toInteger($('.title > .rank').text())
@@ -91,7 +91,7 @@ function splitPost($elems, limit) {
  * @param limit
  */
 function parseItems (contents, limit) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
         var $ = cheerio.load(contents);
         var $posts = $('BODY .itemlist');
 
@@ -103,12 +103,12 @@ function parseItems (contents, limit) {
         var htmlPosts = splitPost($posts, limit);
 
         // Convert to detailed objects
-        var results = htmlPosts.map(function(elem) {
+        var results = htmlPosts.map((elem) => {
             return parseOneItem(elem);
         });
 
         // Filter empty values
-        results = results.filter(function (elem) {
+        results = results.filter((elem) => {
             return elem;
         });
 
@@ -122,8 +122,8 @@ function parseItems (contents, limit) {
  * @param limit
  */
 function getData (url, limit) {
-    return new Promise(function(resolve, reject) {
-        return downloadPage(url).then(function(contents) {
+    return new Promise((resolve, reject) => {
+        return downloadPage(url).then((contents) => {
             if ( ! contents) {
                 reject('empty contents');
                 return;
@@ -131,7 +131,7 @@ function getData (url, limit) {
 
             return parseItems(contents, limit);
         })
-        .then(function(items) {
+        .then((items) => {
             if ( ! items) {
                 reject('empty items');
                 return;
@@ -143,10 +143,10 @@ function getData (url, limit) {
 }
 
 module.exports = {
-    parseOneItem: parseOneItem,
+    parseOneItem,
 
-    downloadPage: downloadPage,
-    parseItems: parseItems,
+    downloadPage,
+    parseItems,
 
-    getData: getData
+    getData
 };
