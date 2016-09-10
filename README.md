@@ -27,6 +27,7 @@ Libraries used
 - __bluebird__ is for Promises
 - __cheerio__ is for jQuery-like parsing of HTML
 - __mocha__ is for unit-tests
+- __chai__ is for BDD-like assertions in tests
 
 
 Output format
