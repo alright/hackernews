@@ -3,9 +3,9 @@ var utils = require('../src/utils');
 
 describe('toInteger function', function () {
     it('should convert anything to integer', function () {
-        expect(utils.toInteger("1")).to.be.equal(1);
-        expect(utils.toInteger("150aasdas")).to.be.equal(150);
-        expect(utils.toInteger("150 aasdas")).to.be.equal(150);
+        expect(utils.toInteger("1")).to.equal(1);
+        expect(utils.toInteger("150aasdas")).to.equal(150);
+        expect(utils.toInteger("150 aasdas")).to.equal(150);
     });
 });
 
